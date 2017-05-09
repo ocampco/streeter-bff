@@ -1,0 +1,15 @@
+{
+  "name": "streeter-bff",
+  "version": "1.0.0",
+  "license": "REA",
+  "private": true,
+  "engines": {
+    "node": "7.9.0"
+  },
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
