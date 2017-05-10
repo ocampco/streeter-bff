@@ -1,7 +1,8 @@
 const express = require('express');
+const cors = require('cors');
 const fetch = require('isomorphic-fetch');
 
-const { callback } = require('./api/config');
+const { callback, origin } = require('./api/config');
 const search = require('./routes/search/search');
 const parse = require('./api/parse');
 const url = require('./api/url');
@@ -9,7 +10,7 @@ const url = require('./api/url');
 const app = express();
 const router = express.Router();
 
-router.get('/search/:query', (req, res, next) => {
+router.get('/search/:query', cors(origin), (req, res, next) => {
   const { query } = req.params;
   const endpoint = url('search', query);
 
