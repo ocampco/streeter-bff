@@ -2,6 +2,7 @@ const express = require('express');
 const fetch = require('isomorphic-fetch');
 
 const { callback } = require('./api/config');
+const search = require('./routes/search/search');
 const parse = require('./api/parse');
 const url = require('./api/url');
 
@@ -15,6 +16,7 @@ router.get('/search/:query', (req, res, next) => {
   fetch(endpoint)
     .then(response => response.text())
     .then(text => parse.jsonp(text))
+    .then(json => search.transform(json))
     .then(output => res.send(output))
     .catch((err) =>{
       console.log('err', err);
