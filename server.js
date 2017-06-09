@@ -25,7 +25,7 @@ router.get('/search/:query', cors(origin), (req, res, next) => {
     });
 });
 
-router.get('/diagnostic/heartbeat', (req, res) => {
+router.get('/diagnostic/heartbeat', cors({ origin: true }), (req, res) => {
   res.send('OK');
 });
 
