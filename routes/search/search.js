@@ -9,6 +9,11 @@ const listing = item => ({
 });
 
 exports.transform = json => {
+  const count = json.ResultSet['@attributes'].totalResultsAvailable;
   const listings = json.ResultSet.Result.Item;
-  return flatMap(listings, listing);
+  
+  return ({
+    count: count,
+    listings: listings
+  });
 };
