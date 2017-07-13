@@ -4,7 +4,7 @@
   "license": "REA",
   "private": true,
   "engines": {
-    "node": "7.9.0"
+    "node": "8.1.4"
   },
   "scripts": {
     "start": "node ./server.js"
